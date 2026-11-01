@@ -1,0 +1,153 @@
+// Global Styles Entry Point
+// Imports all design tokens and base styles
+
+// 1. Design tokens (must be first) - use with * to make variables available globally
+@use 'tokens' as *;
+
+// 2. Reset
+@use 'reset' as *;
+
+// 3. Typography
+@use 'typography' as *;
+
+// 4. Buttons
+@use 'buttons' as *;
+
+// 5. Layout utilities
+@use 'layout' as *;
+
+// Global root styles
+:root {
+  // CSS Custom Properties for runtime access (JS, Motion, etc.)
+  --color-deep-navy: #{$color-deep-navy};
+  --color-cooling-blue: #{$color-cooling-blue};
+  --color-heating-red: #{$color-heating-red};
+  --color-warm-cream: #{$color-warm-cream};
+  --color-white: #{$color-white};
+  
+  --color-primary: #{$color-primary};
+  --color-accent-cool: #{$color-accent-cool};
+  --color-accent-warm: #{$color-accent-warm};
+  --color-bg-light: #{$color-bg-light};
+  --color-bg-dark: #{$color-bg-dark};
+  --color-bg-white: #{$color-bg-white};
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-text-light: #{$color-text-light};
+  
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
+  --font-button: #{$font-button};
+  
+  --space-unit: #{$space-1};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+  
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  --shadow-warm: #{$shadow-warm};
+  --shadow-cool: #{$shadow-cool};
+  --shadow-primary: #{$shadow-primary};
+}
+
+// Global HTML/Body
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-bg-light;
+  min-height: 100vh;
+}
+
+// Smooth scroll (respects prefers-reduced-motion via reset)
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection colors
+::selection {
+  background-color: $color-accent-warm;
+  color: $color-white;
+}
+
+// Focus visible for all interactive elements
+:focus-visible {
+  outline: 3px solid $color-accent-cool;
+  outline-offset: 2px;
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $space-3 $space-6;
+  background: $color-primary;
+  color: $color-white;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  z-index: $z-toast;
+  transition: top $transition-fast;
+  
+  &:focus {
+    top: $space-4;
+  }
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Image placeholder base styles
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $color-bg-light 0%, #EDF2F7 100%);
+  border: 2px dashed $color-border-light;
+  color: $color-text-secondary;
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  text-align: center;
+  padding: $space-8;
+  border-radius: $radius-xl;
+  
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-base;
+    padding: $space-6;
+  }
+  
+  &::before {
+    content: attr(data-label);
+  }
+}
+
+// Reduced motion utility class
+@media (prefers-reduced-motion: reduce) {
+  .reduce-motion {
+    animation: none !important;
+    transition: none !important;
+  }
+}

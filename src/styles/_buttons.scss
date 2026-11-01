@@ -1,0 +1,205 @@
+// Button System
+// Three variants: primary (heating red), secondary (deep navy), outline (cooling blue)
+// Sizes: sm, md, lg
+
+// Import tokens for variables
+@use 'tokens' as *;
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  line-height: 1;
+  letter-spacing: $letter-spacing-normal;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  white-space: nowrap;
+  text-decoration: none;
+  
+  &:focus-visible {
+    outline: 3px solid $color-accent-cool;
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+@mixin button-size-sm {
+  padding: $space-2 $space-4;
+  font-size: $font-size-sm;
+  gap: $space-1;
+}
+
+@mixin button-size-md {
+  padding: $space-3 $space-6;
+  font-size: $font-size-base;
+}
+
+@mixin button-size-lg {
+  padding: $space-4 $space-8;
+  font-size: $font-size-lg;
+}
+
+// Primary button - Heating Red (warm accent)
+.btn-primary {
+  @include button-base;
+  @include button-size-md;
+  background-color: $color-accent-warm;
+  color: $color-white;
+  border: 2px solid $color-accent-warm;
+  box-shadow: $shadow-warm;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-accent-warm-dark;
+    border-color: $color-accent-warm-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-warm;
+  }
+  
+  &.btn-sm { @include button-size-sm; }
+  &.btn-lg { @include button-size-lg; }
+}
+
+// Secondary button - Deep Navy
+.btn-secondary {
+  @include button-base;
+  @include button-size-md;
+  background-color: $color-primary;
+  color: $color-white;
+  border: 2px solid $color-primary;
+  box-shadow: $shadow-primary;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-primary;
+  }
+  
+  &.btn-sm { @include button-size-sm; }
+  &.btn-lg { @include button-size-lg; }
+}
+
+// Outline button - Cooling Blue
+.btn-outline {
+  @include button-base;
+  @include button-size-md;
+  background-color: transparent;
+  color: $color-accent-cool;
+  border: 2px solid $color-accent-cool;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-accent-cool;
+    color: $color-white;
+    transform: translateY(-2px);
+    box-shadow: $shadow-cool;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  &.btn-sm { @include button-size-sm; }
+  &.btn-lg { @include button-size-lg; }
+}
+
+// Ghost button - minimal, for secondary actions
+.btn-ghost {
+  @include button-base;
+  @include button-size-md;
+  background-color: transparent;
+  color: $color-text-primary;
+  border: 2px solid transparent;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-border-light;
+    color: $color-primary;
+  }
+  
+  &.btn-sm { @include button-size-sm; }
+  &.btn-lg { @include button-size-lg; }
+}
+
+// Full width utility
+.btn-full {
+  width: 100%;
+}
+
+// Icon-only button (for mobile menu toggle, etc.)
+.btn-icon {
+  @include button-base;
+  padding: $space-2;
+  border-radius: $radius-full;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-border-light;
+  }
+  
+  &.btn-primary {
+    color: $color-accent-warm;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($color-accent-warm, 0.1);
+    }
+  }
+  
+  &.btn-secondary {
+    color: $color-primary;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($color-primary, 0.1);
+    }
+  }
+}
+
+// Phone CTA button - special variant for prominence
+.btn-phone {
+  @include button-base;
+  @include button-size-lg;
+  background-color: $color-accent-warm;
+  color: $color-white;
+  border: 2px solid $color-accent-warm;
+  box-shadow: $shadow-warm;
+  gap: $space-3;
+  font-size: $font-size-lg;
+  
+  @media (max-width: $bp-sm) {
+    @include button-size-md;
+    font-size: $font-size-base;
+  }
+  
+  &:hover:not(:disabled) {
+    background-color: $color-accent-warm-dark;
+    border-color: $color-accent-warm-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-warm;
+  }
+  
+  svg {
+    flex-shrink: 0;
+  }
+}

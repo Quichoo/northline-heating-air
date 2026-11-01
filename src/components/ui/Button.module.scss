@@ -1,0 +1,210 @@
+@use 'tokens' as *;
+@use 'buttons' as *;
+
+.button {
+  @include button-base;
+  @include button-size-md;
+  border: none;
+  cursor: pointer;
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-normal;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+
+  &:focus-visible {
+    outline: 3px solid $color-accent-cool;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+// Size variants
+.sm {
+  @include button-size-sm;
+}
+
+.md {
+  @include button-size-md;
+}
+
+.lg {
+  @include button-size-lg;
+}
+
+// Full width
+.fullWidth {
+  width: 100%;
+}
+
+// Variants
+.primary {
+  @include button-base;
+  background-color: $color-accent-warm;
+  color: $color-white;
+  border: 2px solid $color-accent-warm;
+  box-shadow: $shadow-warm;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-warm-dark;
+    border-color: $color-accent-warm-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-warm;
+  }
+}
+
+.secondary {
+  @include button-base;
+  background-color: $color-primary;
+  color: $color-white;
+  border: 2px solid $color-primary;
+  box-shadow: $shadow-primary;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-primary;
+  }
+}
+
+.outline {
+  @include button-base;
+  background-color: transparent;
+  color: $color-accent-cool;
+  border: 2px solid $color-accent-cool;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-cool;
+    color: $color-white;
+    transform: translateY(-2px);
+    box-shadow: $shadow-cool;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+.ghost {
+  @include button-base;
+  background-color: transparent;
+  color: $color-text-primary;
+  border: 2px solid transparent;
+
+  &:hover:not(:disabled) {
+    background-color: $color-border-light;
+    color: $color-primary;
+  }
+}
+
+.phone {
+  @include button-base;
+  @include button-size-lg;
+  background-color: $color-accent-warm;
+  color: $color-white;
+  border: 2px solid $color-accent-warm;
+  box-shadow: $shadow-warm;
+  gap: $space-3;
+  font-size: $font-size-lg;
+
+  @media (max-width: $bp-sm) {
+    @include button-size-md;
+    font-size: $font-size-base;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-warm-dark;
+    border-color: $color-accent-warm-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-warm;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// Loading state
+.loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  color: inherit;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerCircle {
+  stroke-linecap: round;
+  animation: spinner 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinner {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+// Icon positioning
+.iconLeft {
+  display: flex;
+  align-items: center;
+}
+
+.iconRight {
+  display: flex;
+  align-items: center;
+  margin-left: $space-1;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}

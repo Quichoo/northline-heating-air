@@ -1,0 +1,51 @@
+@use 'tokens' as *;
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  text-decoration: none;
+  padding: $space-2 0;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-cool;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-accent-cool;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
+  }
+}
+
+.active {
+  color: $color-accent-cool;
+  font-weight: $font-weight-semibold;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $color-accent-cool;
+  border-radius: $radius-full;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}

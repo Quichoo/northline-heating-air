@@ -1,0 +1,224 @@
+@use 'tokens' as *;
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px; // Header height
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $bp-md) {
+    min-height: auto;
+    padding: 140px 0 $space-16;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-12;
+  align-items: center;
+
+  @media (max-width: $bp-lg) {
+    gap: $space-8;
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.content {
+  max-width: 580px;
+
+  @media (max-width: $bp-md) {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: $color-accent-warm;
+  color: $color-white;
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  border-radius: $radius-full;
+  white-space: nowrap;
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-xs;
+    padding: $space-1 $space-3;
+  }
+}
+
+.badgeIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.headline {
+  font-family: $font-heading;
+  font-weight: $font-weight-extrabold;
+  font-size: $font-size-5xl;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: $color-primary;
+  margin: $space-6 0;
+
+  @media (max-width: $bp-lg) {
+    font-size: $font-size-4xl;
+  }
+
+  @media (max-width: $bp-md) {
+    font-size: $font-size-3xl;
+  }
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.subheadline {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-2xl;
+  line-height: 1.2;
+  color: $color-text-primary;
+  margin: 0 0 $space-6;
+
+  @media (max-width: $bp-md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.description {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  margin: 0 0 $space-8;
+  max-width: 500px;
+
+  @media (max-width: $bp-md) {
+    max-width: 100%;
+    font-size: $font-size-base;
+  }
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-10;
+
+  @media (max-width: $bp-md) {
+    justify-content: center;
+  }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.primaryCTA {
+  @media (max-width: $bp-sm) {
+    width: 100%;
+  }
+}
+
+.secondaryCTA {
+  @media (max-width: $bp-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.trustIndicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-6;
+  padding-top: $space-6;
+  border-top: 1px solid $color-border-light;
+
+  @media (max-width: $bp-md) {
+    justify-content: center;
+    gap: $space-4;
+  }
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.trustIcon {
+  display: inline-flex;
+  color: $color-accent-cool;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  box-shadow: $shadow-xl;
+  background: $color-bg-white;
+
+  @media (max-width: $bp-md) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.imagePlaceholder {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: linear-gradient(135deg, $color-bg-light 0%, #EDF2F7 100%);
+  border: 2px dashed $color-border-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-8;
+  text-align: center;
+  color: $color-text-secondary;
+}
+
+.placeholderIcon {
+  width: 64px;
+  height: 64px;
+  opacity: 0.5;
+}
+
+.placeholderContent p {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  margin: 0;
+  color: $color-text-primary;
+}
+
+.placeholderContent span {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}

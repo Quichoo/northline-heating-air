@@ -1,0 +1,93 @@
+@use 'tokens' as *;
+
+.section {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(ellipse at 20% 20%, rgba(214, 83, 69, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(57, 126, 173, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: $space-12 0;
+
+  @media (max-width: $bp-sm) {
+    padding: $space-8 0;
+  }
+}
+
+.badge {
+  display: inline-block;
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $color-accent-warm;
+  background: rgba(214, 83, 69, 0.15);
+  padding: $space-1 $space-4;
+  border-radius: $radius-full;
+  margin-bottom: $space-6;
+}
+
+.headline {
+  font-family: $font-heading;
+  font-weight: $font-weight-extrabold;
+  font-size: $font-size-4xl;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: $color-white;
+  margin: 0 0 $space-6;
+
+  @media (max-width: $bp-md) {
+    font-size: $font-size-3xl;
+  }
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.description {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 $space-8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-base;
+  }
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+}
+
+.phoneButton {
+  min-width: 320px;
+
+  @media (max-width: $bp-sm) {
+    width: 100%;
+    min-width: auto;
+  }
+}

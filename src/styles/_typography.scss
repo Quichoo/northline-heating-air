@@ -1,0 +1,152 @@
+// Typography System
+// Montserrat for headings, Inter for body, Montserrat SemiBold for buttons
+
+// Import tokens for variables
+@use 'tokens' as *;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('@fontsource/montserrat/files/montserrat-latin-700-normal.woff2') format('woff2'),
+       url('@fontsource/montserrat/files/montserrat-latin-800-normal.woff2') format('woff2');
+  font-weight: 700 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Heading styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+}
+
+h1 {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-extrabold;
+  letter-spacing: -0.03em;
+  
+  @media (max-width: $bp-md) {
+    font-size: $font-size-4xl;
+  }
+  
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  
+  @media (max-width: $bp-md) {
+    font-size: $font-size-3xl;
+  }
+  
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+}
+
+h5 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+h6 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+}
+
+// Body text
+p {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  margin-bottom: $space-4;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.lead {
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.small {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+}
+
+.muted {
+  color: #718096;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: $color-accent-cool;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $color-accent-cool-dark;
+  }
+  
+  &:focus-visible {
+    outline: 3px solid $color-accent-cool;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+// Button text (handled in _buttons.scss but base here)
+.button-text {
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-normal;
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-heading { font-family: $font-heading; }
+.font-body { font-family: $font-body; }
+
+.font-extrabold { font-weight: $font-weight-extrabold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-regular { font-weight: $font-weight-regular; }
+
+.uppercase { text-transform: uppercase; letter-spacing: 0.05em; }

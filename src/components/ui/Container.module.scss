@@ -1,0 +1,17 @@
+@use 'tokens' as *;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: $bp-sm) {
+    padding: 0 $space-4;
+  }
+}
+
+.sm { max-width: $container-sm; }
+.md { max-width: $container-md; }
+.lg { max-width: $container-lg; }
+.xl { max-width: $container-xl; }
+.container-2xl { max-width: $container-2xl; }

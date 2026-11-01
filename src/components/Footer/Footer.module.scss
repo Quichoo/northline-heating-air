@@ -1,0 +1,170 @@
+@use 'tokens' as *;
+
+.footer {
+  background: $color-primary;
+}
+
+.section {
+  padding: $space-20 0 $space-12;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: $space-12;
+  margin-bottom: $space-16;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: $space-8;
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+    text-align: center;
+  }
+}
+
+.brand {
+  max-width: 320px;
+
+  @media (max-width: $bp-md) {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.logo {
+  margin-bottom: $space-6;
+}
+
+.tagline {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 $space-6;
+}
+
+.promise {
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  color: $color-accent-warm;
+  font-style: italic;
+  margin: 0;
+}
+
+.nav {
+  @media (max-width: $bp-md) {
+    text-align: center;
+  }
+}
+
+.navTitle {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  color: $color-white;
+  margin: 0 0 $space-4;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.navItem {
+  display: flex;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-accent-warm;
+    transform: translateX(4px);
+  }
+}
+
+.contact {
+  @media (max-width: $bp-md) {
+    text-align: center;
+  }
+}
+
+.contactTitle {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  color: $color-white;
+  margin: 0 0 $space-4;
+}
+
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-warm;
+  }
+}
+
+.contactIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: $color-accent-warm;
+}
+
+.bottom {
+  padding-top: $space-8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.license {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}

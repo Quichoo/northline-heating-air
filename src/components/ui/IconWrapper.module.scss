@@ -1,0 +1,34 @@
+@use 'tokens' as *;
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  color: $color-primary;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+// Sizes
+.xs { width: $icon-xs; height: $icon-xs; }
+.sm { width: $icon-sm; height: $icon-sm; }
+.md { width: $icon-md; height: $icon-md; }
+.lg { width: $icon-lg; height: $icon-lg; }
+.xl { width: $icon-xl; height: $icon-xl; }
+.icon-2xl { width: $icon-2xl; height: $icon-2xl; }
+
+// Colors
+.primary { color: $color-primary; }
+.cool { color: $color-accent-cool; }
+.warm { color: $color-accent-warm; }
+.white { color: $color-white; }
+.inherit { color: inherit; }

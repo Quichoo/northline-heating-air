@@ -1,0 +1,108 @@
+@use 'tokens' as *;
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto $space-16;
+
+  @media (max-width: $bp-sm) {
+    margin-bottom: $space-12;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: $font-button;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent-cool;
+  margin-bottom: $space-3;
+}
+
+.headline {
+  font-family: $font-heading;
+  font-weight: $font-weight-extrabold;
+  font-size: $font-size-4xl;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: $color-primary;
+  margin: 0 0 $space-4;
+
+  @media (max-width: $bp-md) {
+    font-size: $font-size-3xl;
+  }
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.subtext {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  margin: 0;
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-base;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-6;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: $color-bg-white;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-xl;
+  padding: $space-8 $space-6;
+  text-align: center;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: $color-accent-cool;
+  }
+}
+
+.icon {
+  margin: 0 auto $space-4;
+  background: linear-gradient(135deg, rgba(57, 126, 173, 0.1) 0%, rgba(57, 126, 173, 0.05) 100%);
+  border-radius: $radius-lg;
+  padding: $space-2;
+}
+
+.cardTitle {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xl;
+  color: $color-primary;
+  margin: 0 0 $space-3;
+
+  @media (max-width: $bp-sm) {
+    font-size: $font-size-lg;
+  }
+}
+
+.cardDescription {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  margin: 0;
+}
